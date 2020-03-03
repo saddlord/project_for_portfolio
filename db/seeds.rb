@@ -8,7 +8,7 @@
 
 Event.destroy_all
 8.times do |t|
-    user = Event.create(title: "Plongée", description: "tres jolie plongeoire pour la miff", start_date: 12/12/12, price: 25, location: "paris")
+    event = Event.create(title: "Plongée", description: "tres jolie plongeoire pour la miff", start_date: 12/12/12, price: 25, location: "paris")
     
 end
 puts "8 users et items on été créé"
