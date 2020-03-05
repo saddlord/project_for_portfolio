@@ -5,34 +5,26 @@
 <p>description : <%= @user.description %> </p>
 <p>prenom : <%= @user.email %> </p>
 
-<% if @admin %>
-  <h4 class="text-center m-3"><%= @user.first_name %> is admin of <%= @admin_events.size %> events</h4>
-  <% @admin_events.each do |event| %>
-        <%= link_to event do %>
-          <div class= "col-sm m-2 text-center" >
-            <div class="card" style="width: 18rem; text-decoration: none;">
-                <div class="card-body card-event">
-                  <p class="text-info"><%= event.location %></p>
-                  <h5 class="text-info"><%= event.title %></h5>
-                  <p class="text-info"><%= event.start_date.strftime("%B %d, %Y")%></p>
-                  <div class="mt-2 ">
-                    <% if user_signed_in?%>
-                      <% if is_event_admin?(get_admin(event))%>
-                        You are administrator to this event | <%= link_to "Event Admin Page",attendances_path(event_id: event.id) %>
-                      <% elsif is_current_user_guest?(event)%>
-                        You are already registered for this event !
-                      <% else %>
-                        <%= link_to "Buy Now", new_event_charge_path(event) , class: "btn btn-danger text-white" %>
-                      <% end %>
-                    <% end %>
-                  </div>
-                </div>
+          <div class="card m-4 col-md-3">
+            <div class="card-header">
+              My events
+            </div>
+              <% if @admin_events == nil %>
+              <div class="m-3">
+                <p class="text-center">You haven't created any event.</p>
               </div>
+              <% elsif @admin_events.sort_by(&:created_at).each do |event| %>
+              <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <p>Event: <%= event.title %></p>
+                    <p><%= link_to "Go to the event page", event_path(event.id), :class => 'card-link' %></p>
+                  </li>
+                </ul>
+              <% end %>
+            <% end %>
           </div>
-      <% end %>
-    <% end %>
-<% end %>
-
+        </div>
+        <br>
 
 
 

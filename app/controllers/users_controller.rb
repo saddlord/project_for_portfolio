@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
 
+	before_action :authenticate_user!
+	before_action :is_owner
+
 	def index
 	end
 
@@ -22,4 +25,12 @@ class UsersController < ApplicationController
 
 	def destroy	
 	end
+
+	private
+
+	def is_owner
+      if current_user.id.to_i != params[:id].to_i
+        redirect_to "/"
+      end
+  end
 end
