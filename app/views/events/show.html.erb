@@ -1,1 +1,9 @@
 <h1>Bienvenue sur la page de l'evenement : <%= @event.title %> </h1>
+
+<% if user_signed_in?%>
+	<% if @event.admin == current_user %>
+	blabla 
+	<% else %>
+	<a href="<%= new_attendance_path %>">Rejoindre</a>
+	<%end%>
+	<%end%>
