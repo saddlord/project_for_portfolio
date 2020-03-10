@@ -1,9 +1,12 @@
 <h1>Bienvenue sur la page de l'evenement : <%= @event.title %> </h1>
 
-<% if user_signed_in?%>
-	<% if @event.admin == current_user %>
-	blabla 
-	<% else %>
-	<a href="<%= new_attendance_path %>">Rejoindre</a>
-	<%end%>
-	<%end%>
+
+
+
+        <% if user_signed_in? && @event.admin_id == current_user.id%>
+          <a class="btn btn-danger" <%= link_to "Voir mon event", event_attendances_path(@event.id)%>
+        <% elsif user_signed_in? && @event.users.ids.include?(current_user.id)%>
+          <div class="text-muted font-weight-bold">Vous êtes inscrit à cet event.</div>
+        <%elsif user_signed_in?%>
+          <a class="btn btn-danger" <%= link_to "S'inscrire", new_event_attendance_charge_path(@event.id,current_user.id)%>
+        <%end%>

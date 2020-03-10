@@ -18,5 +18,5 @@ class Event < ApplicationRecord
   def event_admin
     User.find(self.admin_id)
   end
-  
+   
 end
