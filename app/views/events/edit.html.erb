@@ -30,4 +30,7 @@
   <%= submit_tag "edit event", class:"btn btn-lg btn-dark btn-block" %>
   </div>
   <% end %>
+
+  <h2 class="h1 mt-3 mb-4 ml-3 text-center">supprimer l'event</h2>
+<%= link_to 'Destroy', @event, :method => :delete, :confirm => "Are you sure?" %>
 </div>
