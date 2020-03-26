@@ -13,7 +13,7 @@ class EventsController < ApplicationController
 	end
 
 	def create
-		@event = Event.new(title: params[:title], start_date: params[:start_date], duration: params[:duration], price: params[:price], location: params[:location])
+		@event = Event.new(title: params[:title], start_date: params[:start_date], duration: params[:duration], price: params[:price], location: params[:location], description: params[:description])
 		@event.admin_id = current_user.id
 		if @event.save
 		redirect_to
@@ -29,7 +29,7 @@ class EventsController < ApplicationController
 
 	def update
 		@event = Event.find(params[:id])
-		if @event.update(title: params[:title], start_date: params[:start_date], duration: params[:duration], price: params[:price], location: params[:location])
+		if @event.update(title: params[:title], start_date: params[:start_date], duration: params[:duration], price: params[:price], location: params[:location], description: params[:description])
 		redirect_to
 			 event_path(@event.id)
 		else

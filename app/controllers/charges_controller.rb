@@ -6,7 +6,7 @@ end
 def create
      @event=Event.find(params[:event_id])
   # Amount in cents
-  @amount = 500
+  @amount = 100
 
   customer = Stripe::Customer.create({
     email: params[:stripeEmail],
