@@ -2,31 +2,31 @@
 <div class="container mt-5 form-group">
         <%= form_tag url_for(action: 'update'), method: "patch" do %>
    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <div class="form-group">
+  <div class="form-group mx-auto">
   <%= label_tag 'Title' %>
   <%= text_field_tag 'title',value = @event.title, autofocus: true, class: 'form-control' %>
   </div>    
-  <div class="form-group">
+  <div class="form-group mx-auto">
     <%= label_tag 'Location' %>
     <%= text_field_tag 'location', value = @event.location, autofocus: true, class: 'form-control' %>  
   </div>   
-  <div class="form-group">
+  <div class="form-group mx-auto">
     <%= label_tag 'Starts at' %>
     <%= datetime_field_tag 'start_date', value = @event.start_date, autofocus: true, class: 'form-control' %>  
   </div>  
-  <div class="form-group"> 
+  <div class="form-group mx-auto"> 
     <%= label_tag 'Duration' %>
     <%= number_field_tag 'duration', value = @event.duration, autofocus: true, class: 'form-control' %>  
   </div>
-  <div class="form-group"> 
+  <div class="form-group mx-auto"> 
     <%= label_tag 'Price' %>
     <%= number_field_tag 'price', value = @event.price, autofocus: true, class: 'form-control' %>  
   </div>
-  <div class="form-group"> 
+  <div class="form-group mx-auto"> 
     <%= label_tag 'Description_of_your_event' %>
     <%= text_field_tag 'description', value = @event.description, autofocus: true, class: 'form-control' %>  
   </div>
-  <div class="actions mt-4 mb-3">
+  <div class="actions mt-4 mb-3 mx-auto">
   <%= submit_tag "edit event", class:"btn btn-lg btn-dark btn-block" %>
   </div>
   <% end %>

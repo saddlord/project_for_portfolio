@@ -103,7 +103,7 @@ a .material-icons {
 }
 
 .profile-page .page-header {
-    height: 380px;
+    height: 120px;
     background-position:center;
 }
 
@@ -251,7 +251,7 @@ p {
 }
 
 .profile-page .gallery img {
-    width: 100%;
+    width: 200%;
     margin-bottom: 2.142rem;
 }
 
@@ -414,4 +414,9 @@ footer p a{
 footer p a:hover {
     color: #9f26aa;
     text-decoration: none;
+}   
+
+
+.form-group {
+    width: 50%;
 }

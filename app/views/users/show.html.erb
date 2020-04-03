@@ -1,9 +1,8 @@
-<a href="<%= edit_user_registration_path %>">modifier mes infos</a>
 
   <div class="profile-page">
     
               
-    <div class="page-header header-filter" data-parallax="true" style="background-image:url('http://wallpapere.org/wp-content/uploads/2012/02/black-and-white-city-night.png');"></div>
+    <div class="page-header header-filter" data-parallax="true" ></div>
     <div class="main main-raised">
     <div class="profile-content">
             <div class="container">
@@ -14,7 +13,7 @@
                               <img src="https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTU0NjQzOTk4OTQ4OTkyMzQy/ansel-elgort-poses-for-a-portrait-during-the-baby-driver-premiere-2017-sxsw-conference-and-festivals-on-march-11-2017-in-austin-texas-photo-by-matt-winkelmeyer_getty-imagesfor-sxsw-square.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
                           </div>
                           <div class="name">
-                              <h3 class="title"><%= @user.first_name %><%= @user.last_name %></h3>
+                              <h3 class="title"><%= @user.first_name %> <%= @user.last_name %></h3>
                 <h6><%= @user.email %></h6>
                 <a href="#pablo" class="btn btn-just-icon btn-link btn-dribbble"><i class="fa fa-dribbble"></i></a>
                                 <a href="#pablo" class="btn btn-just-icon btn-link btn-twitter"><i class="fa fa-twitter"></i></a>
@@ -26,6 +25,10 @@
                 <div class="description text-center">
                     <p><%= @user.description %></p>
                 </div>
+                <div class="text-center">
+                <% if current_user.id == @user.id %>
+                <a class="btn" href="<%= edit_user_registration_path %>">modifier mes infos</a>
+                <% end %> 
         <div class="row">
           <div class="col-md-6 ml-auto mr-auto">
                         <div class="profile-tabs">
@@ -48,19 +51,14 @@
             </div>
           <div class="tab-content tab-space">
             <div class="tab-pane active text-center gallery" id="studio">
-          <div class="row">
+            <div class="container-fluid row">
             <div class="col-md-3 mx-auto">
-        <% if @admin_events == nil %>
-              <div class="m-3">
-                <p class="text-center">You haven't created any event.</p>
-              </div>
-              <% elsif @admin_events.all.each do |event| %>
+               <% @admin_events.all.each do |event| %>
               <div class="card">
                     <h3 class="card-header"><%= event.title %></h3>
                     <div class="card-body"><%= event.description %></div>
                     <a class="btn"><%= link_to "Go to the event page", event_path(event.id), :class => 'card-link' %></a>
                   </div>
-              <% end %>
             <% end %>
             </div>
           </div>
@@ -69,11 +67,15 @@
 
             <div class="tab-pane text-center gallery" id="works">
             <div class="row">
-              <div class="col-md-3 ml-auto">
+              <div class="col-md-3 mx-auto">
+                <% @guest_events.each do |event| %>
+                <div class="card">
+                    <h3 class="card-header"><%= event.title %></h3>
+                    <div class="card-body"><%= event.description %></div>
+                    <a class="btn"><%= link_to "Go to the event page", event_path(event.id), :class => 'card-link' %></a>
+                  </div>
+                  <% end %>
                       </div>
-              <div class="col-md-3 mr-auto">
-                      
-              </div>
             </div>
         </div>
           </div>
