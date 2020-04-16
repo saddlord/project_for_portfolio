@@ -29,7 +29,7 @@ class EventsController < ApplicationController
 
 	def update
 		@event = Event.find(params[:id])
-		if @event.update(title: params[:title], start_date: params[:start_date], duration: params[:duration], price: params[:price], location: params[:location], description: params[:description], admin: params[:admin])
+		if @event.update(title: params[:title], start_date: params[:start_date], duration: params[:duration], price: params[:price], location: params[:location], description: params[:description])
 		redirect_to
 			 event_path(@event.id)
 		else
