@@ -10,15 +10,7 @@
                   <div class="col-md-6 ml-auto mr-auto">
                      <div class="profile">
                           <div class="avatar">
-                              <%if @user.avatar.attached?%>
                                 <%= image_tag @user.avatar, alt: 'avatar' %>
-                              <%else%>
-
-                              <%= form_tag user_avatars_path(@user), multipart: true do %>
-                            <%= file_field_tag :avatar %>
-                            <%= submit_tag "mettre à jour" %>
-                          <% end %>                              
-                          <% end %>
                           </div>
                           <div class="name">
                               <h3 class="title"><%= @user.first_name %> <%= @user.last_name %></h3>
