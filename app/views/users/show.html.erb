@@ -1,58 +1,43 @@
 
-  <div class="profile-page">
-    
-              
-    <div class="page-header header-filter" data-parallax="true" ></div>
-    <div class="main main-raised">
-    <div class="profile-content">
-            <div class="container">
-                <div class="row">
-                  <div class="col-md-6 ml-auto mr-auto">
-                     <div class="profile">
+
+
+                        <div class="container">
+
                           <div class="avatar">
                                 <%= image_tag @user.avatar, alt: 'avatar' %>
+                                <br><br>
+                                <% if current_user.id == @user.id %>
+                          <a class="btn boo" href="<%= edit_user_registration_path %>">modifier mes infos</a>
+                          <% end %>
                           </div>
-                          <div class="name">
-                              <h3 class="title"><%= @user.first_name %> <%= @user.last_name %></h3>
-                <h6><%= @user.email %></h6>
-                <a href="#pablo" class="btn btn-just-icon btn-link btn-dribbble"><i class="fa fa-dribbble"></i></a>
-                                <a href="#pablo" class="btn btn-just-icon btn-link btn-twitter"><i class="fa fa-twitter"></i></a>
-                                <a href="#pablo" class="btn btn-just-icon btn-link btn-pinterest"><i class="fa fa-pinterest"></i></a>
-                          </div>
-                      </div>
-                  </div>
-                </div>
-                <div class="description text-center">
-                    <p><%= @user.description %></p>
-                </div>
-                <div class="text-center">
-                <% if current_user.id == @user.id %>
-                <a class="btn" href="<%= edit_user_registration_path %>">modifier mes infos</a>
-                <% end %>
-        <div class="row">
-          <div class="col-md-6 ml-auto mr-auto">
-                        <div class="profile-tabs">
-                          <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#studio" role="tab" data-toggle="tab">
-                                  <i class="material-icons">camera</i>
-                                  Events créés
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#works" role="tab" data-toggle="tab">
-                                  <i class="material-icons">palette</i>
-                                  Events rejoints
-                                </a>
-                            </li>
-                          </ul>
+                          
+                          <div class="infos">
+
+                            <h1 class="title"><%= @user.first_name %> <%= @user.last_name %></h3>
+                            <h6><%= @user.email %></h6>
+                            <br>
+                            <p>"<%= @user.description %>."</p>
+
                         </div>
-            </div>
-            </div>
+
+                                    <ul class="nav nav-pills nav-pills-icons" role="tablist">
+                                      <li class="nav-item">
+                                          <a class="nav-link active" href="#studio" role="tab" data-toggle="tab">
+                                            <i class="material-icons">camera</i>
+                                            Events créés
+                                          </a>
+                                      </li>
+                                      <li class="nav-item">
+                                          <a class="nav-link" href="#works" role="tab" data-toggle="tab">
+                                            <i class="material-icons">palette</i>
+                                            Events rejoints
+                                          </a>
+                                      </li>
+                                    </ul>
+
           <div class="tab-content tab-space">
-            <div class="tab-pane active text-center gallery" id="studio">
+            <div class="tab-pane active gallery" id="studio">
             <div class="container-fluid row">
-            <div class="col-md-3 mx-auto">
                <% @admin_events.each do |event| %>
               <div class="card">
                     <h3 class="card-header"><%= event.title %></h3>
@@ -62,12 +47,10 @@
             <% end %>
             </div>
           </div>
-        </div>
 
 
-            <div class="tab-pane text-center gallery" id="works">
-            <div class="container-fluid row">
-              <div class="col-md-3 mx-auto">
+            <div class="tab-pane gallery" id="works">
+
                 <% @guest_events.each do |event| %>
                 <div class="card">
                     <h3 class="card-header"><%= event.title %></h3>
@@ -76,15 +59,5 @@
                   </div>
                   <% end %>
                       </div>
-            </div>
-        </div>
-          </div>
-
-        
-            </div>
-        </div>
-  </div>
-
 </div>
-
-
+</div>
