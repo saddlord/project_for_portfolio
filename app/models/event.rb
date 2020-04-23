@@ -5,6 +5,13 @@ class Event < ApplicationRecord
 belongs_to :admin, class_name: "User"
 
 
+  validates :title, presence: true
+  validates :duration, presence: true
+  validates :start_date, presence: true
+  validates :price, presence: true
+  validates :description, presence: true
+  validates :location, presence: true
+
   def admin_name
     firstname = User.find(self.admin_id).first_name
     lastname = User.find(self.admin_id).last_name

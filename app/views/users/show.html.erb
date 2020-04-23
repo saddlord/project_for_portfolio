@@ -1,39 +1,35 @@
+<div class="container">
+<div class="card mx-auto rounded" style="width: 400px; margin-top: 60px;">
+  <div class="container row no-gutters">
+    <div class="text-center">
+      <div class="card-img" style="margin-top: 20px;"><%= image_tag @user.avatar, alt: 'avatar' %>
+    </div>
 
+    <div class="text-center">
+      <div class="card-body">
+        <h5 class="card-title"><%= @user.first_name %> <%= @user.last_name %></h5>
+        <p class="card-text"><%= @user.email %></p>
+        <p class="card-text">"<%= @user.description %>." </p>
 
-
-                        <div class="container">
-
-                          <div class="avatar">
-                                <%= image_tag @user.avatar, alt: 'avatar' %>
-                                <br><br>
-                                <% if current_user.id == @user.id %>
+<% if current_user.id == @user.id %>
                           <a class="btn boo" href="<%= edit_user_registration_path %>">modifier mes infos</a>
-                          <% end %>
-                          </div>
-                          
-                          <div class="infos">
-
-                            <h1 class="title"><%= @user.first_name %> <%= @user.last_name %></h3>
-                            <h6><%= @user.email %></h6>
-                            <br>
-                            <p>"<%= @user.description %>."</p>
-
-                        </div>
+                                                    <% end %>
+      </div>
+    </div>
 
                                     <ul class="nav nav-pills nav-pills-icons" role="tablist">
                                       <li class="nav-item">
                                           <a class="nav-link active" href="#studio" role="tab" data-toggle="tab">
-                                            <i class="material-icons">camera</i>
                                             Events créés
                                           </a>
                                       </li>
                                       <li class="nav-item">
                                           <a class="nav-link" href="#works" role="tab" data-toggle="tab">
-                                            <i class="material-icons">palette</i>
                                             Events rejoints
                                           </a>
                                       </li>
                                     </ul>
+
 
           <div class="tab-content tab-space">
             <div class="tab-pane active gallery" id="studio">
@@ -41,7 +37,6 @@
                <% @admin_events.each do |event| %>
               <div class="card">
                     <h3 class="card-header"><%= event.title %></h3>
-                    <div class="card-body"><%= event.description %></div>
                     <a class="btn"><%= link_to "Go to the event page", event_path(event.id), :class => 'card-link' %></a>
                   </div>
             <% end %>
@@ -54,10 +49,14 @@
                 <% @guest_events.each do |event| %>
                 <div class="card">
                     <h3 class="card-header"><%= event.title %></h3>
-                    <div class="card-body"><%= event.description %></div>
                     <a class="btn"><%= link_to "Go to the event page", event_path(event.id), :class => 'card-link' %></a>
                   </div>
                   <% end %>
                       </div>
 </div>
 </div>
+  </div>
+</div>
+</div>
+</div>
+

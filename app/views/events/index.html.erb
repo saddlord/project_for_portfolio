@@ -10,6 +10,7 @@
 <div class="container row mx-auto">
 	<% Event.all.each do |event| %>
   <div class="col-sm-4 mt-auto p-2">
+    <div class="card_index">
     <div class="card">
       <div class="card-body">
     <h5 class="card-title text-center"><%= event.title %></h5>
@@ -21,5 +22,6 @@
       </div>
     </div>
   </div>
+</div>
   <%end%>
 </div>
