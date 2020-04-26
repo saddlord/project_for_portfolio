@@ -1,10 +1,10 @@
   <div class="container mt-5 form-group text-center ">
     
-    <div class="page-header header-filter" data-parallax="true" ></div>
-    <div class="main main-raised">
-      <h2> Connectez vous ! </h2>     
+      <h2> Connectez vous ! </h2>
+      <br><br> 
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
   <div class="form-group">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
@@ -25,6 +25,11 @@
   <div class="actions mt-4 mb-3">
     <%= f.submit "Log in", class:"btn btn-lg btn-dark btn-block" %>
   </div>
+
 <% end %>
 
-<div class="btn"> <%= render "devise/shared/links" %> </div>
+<div class="btn">
+  <%= render "devise/shared/links" %>
+  
+</div>
+ </div>
