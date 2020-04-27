@@ -32,12 +32,15 @@ img {
 
 /* footer */
 
-footer {
-	margin-top: 50px;
+.footer {
 	background-color: #a2a2a2;
-	padding: 30px;
+	position:relative;
+    height: 160px;
+    width: 100%;
+	margin-top: 100px;
+	clear: both
 }
 
 .footer-copyright {
-	margin-bottom: -30px;
+
 }

@@ -1,14 +1,14 @@
-<h1>Bienvenue sur la page de l'evenement : <%= @event.title %> </h1>
+<h1 class="text-center mt-5">Bienvenue sur la page de l'evenement </h1>
 
 
 
 
         <% if user_signed_in? && @event.admin_id == current_user.id%>
-          <a class="btn btn-danger" <%= link_to "Voir mon event", event_attendances_path(@event.id)%></a>
+          <a class="btn btn-danger" href="<%= event_attendances_path(@event.id)%>">Voir mon event</a>
         <% elsif user_signed_in? && @event.users.ids.include?(current_user.id)%>
           <div class="text-muted font-weight-bold">Vous êtes inscrit à cet event.</div>
         <%elsif user_signed_in?%>
-          <a class="btn btn-danger" <%= link_to "S'inscrire", new_event_attendance_charge_path(@event.id,current_user.id)%>
+          <a class="btn btn-danger" href="<%= new_event_attendance_charge_path(@event.id,current_user.id)%>">S'inscrire</a>
         <%else%>
-          <a class="btn btn-danger" <%= link_to "S'identifier", new_user_session_path %>
+          <a class="btn btn-danger" href="<%= new_user_session_path %>"> S'identifier</a>
         <%end%>
