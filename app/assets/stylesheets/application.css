@@ -40,3 +40,11 @@ img {
 	margin-top: 100px;
 	padding: 50px;
 }
+
+.form-control {
+	border-radius: 50px !important;
+	background-color: white !important;
+	width: 300px !important;
+	margin-right: auto;
+	margin-left: auto;
+}
