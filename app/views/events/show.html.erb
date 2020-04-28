@@ -1,14 +1,28 @@
 <h1 class="text-center mt-5">Bienvenue sur la page de l'evenement </h1>
 
+<br><br>
 
-
-
-        <% if user_signed_in? && @event.admin_id == current_user.id%>
-          <a class="btn btn-danger" href="<%= event_attendances_path(@event.id)%>">Voir mon event</a>
+<div class="card text-center">
+  <div class="card-header">
+    PROJECT-FOR-US
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= @event.title %></h5>
+    <p class="card-text"><%= @event.description %></p>
+    <a>
+    	 <% if user_signed_in? && @event.admin_id == current_user.id%>
+          <a class="btn btn-secondary" href="<%= event_attendances_path(@event.id)%>">Voir mon event</a>
         <% elsif user_signed_in? && @event.users.ids.include?(current_user.id)%>
           <div class="text-muted font-weight-bold">Vous êtes inscrit à cet event.</div>
         <%elsif user_signed_in?%>
-          <a class="btn btn-danger" href="<%= new_event_attendance_charge_path(@event.id,current_user.id)%>">S'inscrire</a>
+          <a class="btn btn-secondary" href="<%= new_event_attendance_charge_path(@event.id,current_user.id)%>">S'inscrire</a>
         <%else%>
           <a class="btn btn-danger" href="<%= new_user_session_path %>"> S'identifier</a>
         <%end%>
+    </a>
+  </div>
+  <div class="card-footer text-muted">
+    <%= @event.created_at.strftime("%B %d, %Y") %>
+  </div>
+</div>
+       
