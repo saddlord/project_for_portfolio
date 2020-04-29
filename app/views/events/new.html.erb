@@ -1,10 +1,11 @@
-<h2 class="text-center mt-5">Créez un event !</h2>
+<h1 class="text-center mt-5">Créez un event !</h1>
 <h6 class="text-center">(toutes les cases sont obligatoires !)</h6>
 <br>
 <br>
 <div class="container text-center">
   <%= form_tag url_for(action: 'create'), method: "post" do %>
    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+   <br>
   <div class="form-group">
   <%= label_tag 'Title' %>
   <%= text_field_tag 'title', @title, autofocus: true, class: 'form-control' %>
@@ -33,5 +34,6 @@
   <div class="actions mt-4 mb-3">
   <%= submit_tag "Make your event live", class:"btn btn-lg btn-dark btn-block" %>
   </div>
+  <br>
   <% end %>
 </div>

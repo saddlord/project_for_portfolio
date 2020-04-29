@@ -9,6 +9,8 @@ class User < ApplicationRecord
 	has_many :events, through: :attendances
   has_many :events, foreign_key: 'admin_id', class_name: "Event"
   has_one_attached :avatar
+
+validates :avatar, attached: true, content_type: [:png, :jpg, :jpeg]
   def welcome_send
     UserMailer.welcome_email(self).deliver_now
   end

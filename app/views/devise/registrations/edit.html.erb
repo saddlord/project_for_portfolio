@@ -1,8 +1,8 @@
-<h2 class="h1 mt-5 mb-4 ml-3 text-center">Modifiez vos infos !</h2>
-<div class="container mt-5 form-group">
+<h1 class="h1 mt-5 mb-4 ml-3 text-center">Modifiez vos infos !</h1>
+<div class="container mt-5 form-group text-center">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-  
+  <br>
   <div class="form-group">
     <%= f.label :first_name %><br />
   <%= f.text_field :first_name, class: 'form-control'%>
@@ -28,11 +28,10 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.label :new_password %><i><em> (<%= @minimum_password_length %> characters minimum)</em></i><br/>
     <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
     <% if @minimum_password_length %>
       <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
     <% end %>
   </div>
 
@@ -53,12 +52,14 @@
   <div class="actions mt-4 mb-3">
     <%= f.submit "Update", class:"btn btn-lg btn-dark btn-block" %>
   </div>
+  <br>
 <% end %>
 
-<h2 class="h1 mt-3 mb-4 ml-3 text-center">Cancel my account</h2>
+<br>
+<h2 class="text-center">Cancel my account</h2>
+<br>
+<%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-lg btn-dark btn-block" %>
 
-<p><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-lg btn-dark btn-block" %></p>
-  
   <div class="actions mt-4 mb-3">
 <%= link_to "Back", :back, class:"btn btn-lg btn-dark btn-block" %>
  </div>

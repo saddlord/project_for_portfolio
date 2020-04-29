@@ -15,7 +15,13 @@
  */
 
 body {
-	background-color:#cfcfcf !important;
+	background-color:#696969 !important;
+	font-family: barlow,sans-serif !important;
+	color: white !important;
+}
+
+h5, p {
+	color: #708090 !important;
 }
 /* profile */
 .nav, .tab-content {
@@ -33,7 +39,7 @@ img {
 /* footer */
 
 .footer {
-	background-color: #cfcfcf;
+	background-color: #696969;
 	position:relative;
     height: 160px;
     width: 100%;
@@ -48,3 +54,27 @@ img {
 	margin-right: auto;
 	margin-left: auto;
 }
+
+form {
+	background-color:#D3D3D3;
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 40px;
+	box-shadow: 1px 1px 12px #555;
+}
+
+.jumbotron {
+	background-image: url(https://image.freepik.com/photos-gratuite/fond-couleur-holi-fond-blanc_24972-874.jpg);
+	background-repeat: no-repeat;
+    background-size: cover;
+    height:350px;
+}
+
+.card {
+	border-radius: 50px !important;
+
+}
+
+
+
