@@ -1,29 +1,38 @@
+<h1 class="text-center mt-5">Bienvenue l'evenement </h1>
 
-        <p>Titre : <%= @event.title%></p>
+<br><br>
 
-        <p>Description de l'évènement :</p>
-        <p><%=@event.description%></p>
-      
+<div class="card text-center mx-auto" style="width: 400px;">
+  <div class="card-body">
+    <h5 class="card-title"><%= @event.title %></h5>
+    <p class="card-text"><%= @event.description %></p>
+    <p class="card-text">Prix :<%= @event.price %> eur</p>
+    <p class="card-text">Lieu :<%= @event.location %></p>
+    <p class="card-text">Durée :<%= @event.duration%> min</p>
+    <p class="card-text">Date : <%=@event.start_date%></p>
+
+
           <% if user_signed_in? && @event.users.ids.include?(current_user.id)%>
             <div class="text-muted font-weight-bold">Vous êtes inscrit à cet event.</div>
           <%elsif user_signed_in?%>
             <a class="btn btn-info" href="<%= edit_event_path(@event.id)%>">Modifier mon event</a>
           <%end%>
+  </div>
+  <div class="text-muted">
+    <%= @event.created_at.strftime("%B %d, %Y") %>
+    <br>
+    <br>
+  </div>
+</div>
+<br>
+<br>
 
-              Détails de l'évenement
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Lieu : <%=@event.location%></li>
-              <li class="list-group-item">Date : <%=@event.start_date%></li>
-              <li class="list-group-item">Durée : <%=@event.duration%> minutes</li>
-              <li class="list-group-item">Prix : <%=@event.price%> euros (only!)</li>
-            </ul>
-
-
-        <div class="card-header bg-danger text-center text-light">
-          Il y a <%=@event.attendances.size%> inscrit(s)
+        <div class="card-header bg-secondary text-center text-dark mx-auto" style="width: 50%;">
+          <h3>Il y a <%=@event.attendances.size%> inscrit(s)</h3>
         </div>
         <ul class="list-group list-group-flush">
           <%@attendees.all.each do |attendee|%>
           <li class="list-group-item"><%=attendee.first_name%> <%=attendee.last_name%> / <%=attendee.email%></li>
           <%end%>
       </ul>
+
