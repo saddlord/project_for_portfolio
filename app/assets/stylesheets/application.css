@@ -13,19 +13,20 @@
  *= require_tree .
  *= require_self
  */
+
 html {
-    position: relative;
+	position: relative;
     min-height: 100%;
-    height: 100%;
 }
 
 body {
 	background-color:#696969 !important;
 	font-family: barlow,sans-serif !important;
 	color: white !important;
-	min-height: 100%;
-    height: auto;
-    position: relative;
+	  min-height: 100vh;
+  position: relative;
+  margin: 0;
+  padding-bottom: 100px;
 }
 
 h5, p {
@@ -48,11 +49,11 @@ img {
 
 .footer {
 	background-color: #696969;
-    height: 160px;
+	bottom: 0;
     width: 100%;
-	padding: 50px;
-	bottom: 5;
-	position: absolute;
+    height: 100px;
+    position: absolute;
+	
 }
 
 .form-control {
