@@ -25,6 +25,7 @@ body {
 	color: white !important;
 	min-height: 100%;
     height: auto;
+    position: relative;
 }
 
 h5, p {
@@ -52,6 +53,7 @@ img {
     width: 100%;
 	margin-top: 100px;
 	padding: 50px;
+	bottom: 0;
 }
 
 .form-control {
