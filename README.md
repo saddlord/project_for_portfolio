@@ -1,3 +1,3 @@
 # README
 
-project-for-us.herokuapp.com
+http://project-for-us.herokuapp.com
